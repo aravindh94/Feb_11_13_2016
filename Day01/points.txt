@@ -1,0 +1,36 @@
+JavaScript
+	Programming Language
+	Can be used in the client as well as the server
+	
+	browser compatibility
+	so many lines of code (!!!)
+	debugging
+	lack of structure or modularity
+	
+	JavaScript libraries
+	jQuery
+	# Backbone JS
+	Sencha Ext JS 4
+	
+	Angular JS open source JS library
+	Modularity and Structure your JS code
+	lightweight
+	1.5.x
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	Client-side(!!!) scripting language(!!!)
+	handle DOM objects (!!!)
+	Everything is an object(!)
+	defines the behaviour of a website :(
+	 
+
+
+https://github.com/prabhu-durasoft

@@ -1,0 +1,15 @@
+<html>
+	<head>
+		<script>
+		function doSomething(){
+			var name = document.getElementById("name").value;
+			var message = document.getElementById("message");
+			message.innerHTML = "Hi " + name + " !!!";
+		}	
+		</script>
+	</head>	
+	<body>
+		Name <input type="text" id="name" onkeyup="doSomething()">
+		<h1 id="message"></h1>
+	</body>	
+</html>

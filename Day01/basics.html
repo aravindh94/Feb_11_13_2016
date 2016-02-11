@@ -1,0 +1,21 @@
+<html ng-app="Confusion">
+	<head>
+		<script src="angular.js"></script>
+		<script>
+			confusionModule = angular.module("Confusion",[]);
+			confusionModule.controller("PersonController",function($scope){
+				$scope.doSomething = function(){
+					$scope.message1 = "Hello " + $scope.name + " !!!";
+					$scope.message2 = "Welcome to the training"
+				}
+			});
+		</script>
+	</head>	
+	<body ng-controller="PersonController">
+		Name<input type="text" ng-model="name">
+		<br/>
+		<button type="button" ng-click="doSomething()">Click</button>	
+		<h1>{{message1}}</h1>
+		<h1>{{message2}}</h1>
+	</body>	
+</html>

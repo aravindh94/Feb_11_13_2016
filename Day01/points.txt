@@ -18,14 +18,6 @@ JavaScript
 	1.5.x
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
 	Client-side(!!!) scripting language(!!!)
 	handle DOM objects (!!!)
 	Everything is an object(!)

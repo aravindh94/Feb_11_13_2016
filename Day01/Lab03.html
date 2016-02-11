@@ -1,0 +1,58 @@
+<html ng-app="Lab03">
+	<head>
+		<script src="angular.js"></script>
+		<script>
+		var lab03 = angular.module("Lab03",[]);
+		lab03.controller("PersonController",function($scope){
+			$scope.persons = [];
+			$scope.personsfound = false;
+			$scope.removePersons = function(){
+				var temp_persons = [];
+				for (var i = 0; i < $scope.persons.length; i++) {
+					var p = $scope.persons[i];
+					 if(!p.to_be_removed)
+					 	temp_persons.push(p)
+				} 
+				$scope.persons = temp_persons;
+				$scope.personsfound = $scope.persons.length > 0;
+			}
+			$scope.addPerson = function(){
+				var name = $scope.name;
+				var age = $scope.age;
+				$scope.persons.push({
+					name : name,
+					age : age,
+					to_be_removed : false
+				});
+				$scope.personsfound = true;
+			}
+		});
+		</script>
+	</head>
+	<body ng-controller="PersonController">
+		Name<input type="text" ng-model="name"><br/>
+		Age<input type="text" ng-model="age"><br/>
+		<button type="button" ng-click="addPerson()">Add</button>
+		<hr/>
+		<div ng-show="personsfound">
+		<table border="1">
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Age</th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat= "p in persons">
+					<td>{{p.name}}</td>
+					<td>{{p.age}}</td>
+					<td><input type="checkbox" ng-model="p.to_be_removed"></td>
+				</tr>
+			</tbody>		
+		</table>
+		<br/>
+		<button type="button" ng-click="removePersons()">Remove</button>
+	</div>	
+	</body>		
+</html>

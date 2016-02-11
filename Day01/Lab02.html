@@ -1,0 +1,21 @@
+<html>
+	<head>
+		<script>
+		var angular = {
+			module : function(moduleName,arr){
+				var output = {
+					controller : function(ctrlName,bodyFn){
+						var scope = {};
+						bodyFn(scope);
+					}
+				};
+				return output;
+			}
+		};	
+		var lab02 = angular.module("Lab02",[]);
+		lab02.controller("SampleController",function($scope){
+			console.log("Hello Angular JS");
+		});
+		</script>
+	</head>	
+</html>

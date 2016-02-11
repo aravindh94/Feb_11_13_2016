@@ -1,0 +1,42 @@
+<html ng-app="Game">
+	<head>
+		<script src="angular.js"></script>
+		<script>
+			var game = angular.module("Game",[]);
+			game.controller("PlayGameController",function($scope){
+				$scope.error = false
+				var target = Math.round(Math.random()*100);
+				var attempts = 0;
+				$scope.play = function(){
+					attempts++;
+					if (isNaN($scope.guess))
+						$scope.error = true;
+					else {
+						$scope.error = false;
+						if ($scope.guess > target)
+							$scope.message = "Aim Lower";
+						else if($scope.guess < target)
+							$scope.message = "Aim Higher";
+						else
+							$scope.message = "You've got it!!!"; 
+					}
+					$scope.attempts = "Attempts: " + attempts;
+				}
+			});
+		</script>
+	</head>	
+	<body ng-controller="PlayGameController">
+		<h1>Welcome to the Guessing game. Enter a number between 1 and 100</h1>
+		<input type="text" placeholder="Enter your guess" ng-model="guess">
+		<p style="color:red" ng-show="error"> Invalid Input </p>
+		<br/>
+		<button type="button" ng-click="play()">Guess</button>
+		<h2>{{message}}</h2>
+		<h3>{{attempts}}</h3>	
+	</body>	
+</html>
+
+
+
+
+

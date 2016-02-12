@@ -1,0 +1,29 @@
+<html ng-app="Day02">
+	<head>
+		<script src="angular.js"></script>
+		<script>
+		var day02 = angular.module("Day02",[]);
+		day02.controller("FirstController",function($scope,$rootScope){
+			$scope.doSomething = function(){
+				//$rootScope.message = "Hello " + $scope.name;
+				$rootScope.$broadcast("info",$scope.name);	
+			};
+		});
+		day02.controller("SecondController",function($scope){
+			$scope.message = "Hello"
+			$scope.$on("info",function(chakdephatte,value){
+				$scope.message = "Hello " + value;
+			});
+		});
+		</script>
+	</head>	
+	<body>
+		<div ng-controller="FirstController">
+			<input type="text" ng-model="name" ng-change="doSomething()">
+		</div>	
+		<hr/>
+		<div ng-controller="SecondController">
+			{{message}}
+		</div>
+	</body>	
+</html>

@@ -1,0 +1,26 @@
+<html ng-app="Day02">
+	<head>
+		<script src="angular.js"></script>
+		<script>
+		var day02 = angular.module("Day02",[]);
+		day02.controller("FirstController",function($scope,$rootScope){
+			$scope.message = "First Controller";
+			$rootScope.note = "* Conditions Apply";
+		});
+		day02.controller("SecondController",function($scope){
+			$scope.message = "Second Controller";
+		});
+		</script>
+	</head>	
+	<body>
+		<div ng-controller="FirstController">
+			<h1>{{message}}</h1>
+			<h5>{{note}}</h5>
+		</div>	
+		<hr/>
+		<div ng-controller="SecondController">
+			<h1>{{message}}</h1>
+			<h5>{{note}}</h5>
+		</div>
+	</body>	
+</html>

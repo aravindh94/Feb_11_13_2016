@@ -2,7 +2,7 @@ var lab01 = angular.module("Lab01");
 lab01.controller("LoginController",function($scope,$rootScope){
 	$scope.show_loginscreen = true;
 	$scope.error = false;
-	$rootScope.$on("loggedout",function(){
+	$scope.$on("loggedout",function(){
 		$scope.show_loginscreen = true;
 		$scope.username = "";
 		$scope.password = "";

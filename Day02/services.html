@@ -1,0 +1,35 @@
+<html ng-app="PostLunch">
+	<head>
+		<script src="angular.js"></script>
+		<script>
+		var postLunch = angular.module("PostLunch",[]);
+		postLunch.service("AuthService",function(){
+			this.authenticate = function(username,password){
+				if(username == 'sam' && password == 'sam12345')
+					return true;
+				return false;
+			}
+		});
+		
+		postLunch.controller("SampleController",function($scope,AuthService){
+			$scope.login_button_clicked = function(){
+				var valid = AuthService.authenticate($scope.username,$scope.password);
+				if(valid)
+					$scope.message = "Logging in...";
+				else
+					$scope.message = "Invalid username or password";
+			}
+		});
+		</script>
+	</head>
+	<body ng-controller="SampleController">
+		<input type="text" placeholder="username" ng-model="username">
+		<br/>
+		<input type="password" placeholder="password" ng-model="password">
+		<br/>
+		<button type="button" ng-click="login_button_clicked()">
+			Login
+		</button>
+		<h1>{{message}}</h1>
+	</body>	
+</html>

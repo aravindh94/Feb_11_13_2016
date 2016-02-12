@@ -1,0 +1,42 @@
+<html ng-app="Lab03">
+	<head>
+		<link rel="stylesheet" href="lab03.css" type="text/css">
+		<script src="../angular.js"></script>
+		<script src="lab03_modules.js"></script>
+		<script src="lab03_services.js"></script>
+		<script src="lab03_controllers.js"></script>
+	</head>
+	<body>
+		<div id="menu" ng-controller="MenuController">
+			<h1>Menu</h1>
+			<ul>
+				<li ng-repeat="it in items">
+					<div>
+						<span>{{it.name}}</span>
+						<span style="font-weight:bold">({{it.unitprice}})</span>
+						<button type="button" ng-click="addToShoppingCart(it)">+</button>
+					</div>	
+				</li>		
+			</ul>	
+		</div>
+		
+		<div id="cart" ng-controller="ShoppingCartController">
+			<h1>Your Order</h1>
+			<ul>
+				<li ng-repeat="it in shoppingCart">
+					<div>
+						<span>{{it.name}}</span>
+						<span>{{it.quantity}}x</span>
+						<span>({{it.price}})</span>
+						<button type="button" ng-click="removeFromShoppingCart(it)">-</button>
+					</div>	
+				</li>		
+			</ul>
+			<h3>Total {{total}}</h3>
+		</div>
+	</body>	
+</html>
+
+
+
+

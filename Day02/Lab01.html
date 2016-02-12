@@ -1,0 +1,22 @@
+<html ng-app="Lab01">
+	<head>
+		<script src="angular.js"></script>
+		<script src="lab01_modules.js"></script>
+		<script src="lab01_controllers.js"></script>
+	</head>	
+	<body>
+		<div ng-controller="LoginController" ng-show="show_loginscreen">
+			<input type="text" placeholder="Username" ng-model="username">
+			<br/>
+			<input type="password" placeholder="Password" ng-model="password">
+			<br/>
+			<button type="button" ng-click="login()">Login</button>
+			<br/>
+			<p ng-show="error" style="color:red">Invalid Credentials</p>
+		</div>	
+		<div ng-controller="HomeController" ng-show="show_homescreen">
+			<h1>{{message}}</h1>
+			<a style="float:right" href="#" ng-click="logout()">Logout</a>
+		</div>		
+	</body>	
+</html>

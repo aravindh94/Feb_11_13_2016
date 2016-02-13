@@ -6,6 +6,10 @@ var server = http.createServer(function(request,response){
 	if(url.match(/Globe/)){
 		getInfo(request,response);
 	}
+	else if(url.match(/stock/)){
+		var symbols = {"symbols":["INFY","FB","INTC","APPL","HP","IBM","MS","GOOG"]};
+		response.end(JSON.stringify(symbols));
+	}
 	else if(url.match(/currenttime/)){
 		getCurrentTime(request,response);
 	}

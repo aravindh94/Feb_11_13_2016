@@ -1,0 +1,34 @@
+<html ng-app="Lab01">
+	<head>
+		<script src="../angular.js"></script>
+		<script src="lab01_modules.js"></script>
+		<script src="lab01_services.js"></script>
+		<script src="lab01_controllers.js"></script>
+		<style>
+		.positive {
+			background-color:green;
+		}
+		.negative {
+			background-color:red;
+		}
+		</style>
+	</head>
+	<body ng-controller="StockController">
+		<table border='1'>
+			<thead>
+				<th>Symbol</th>
+				<th>Price</th>
+				<th>Change</th>
+			</thead>
+			<tbody>
+				<tr ng-repeat="sym in symbols">
+					<td>{{sym.name}}</td>
+					<td>{{sym.price}}</td>
+					<td class='{{sym.change > 0?"positive":"negative"}}'>
+						{{sym.change}}
+					</td>
+				</tr>	
+			</tbody>		
+		</table>	
+	</body>		
+</html>

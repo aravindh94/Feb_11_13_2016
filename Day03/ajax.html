@@ -3,7 +3,20 @@
 		<script src="angular.js"></script>
 		<script>
 		var day03 = angular.module("Day03",[]);
-		day03.controller("AjaxController",function($scope,$http){
+		day03.controller("AjaxController",function($scope,$http,$interval){
+			
+			$scope.getCurrentTime = function(){
+				$http({
+					url : "/currenttime",
+					method : "GET"
+				}).success(function(response){
+					$scope.time = response;
+				});
+			};
+
+			$interval($scope.getCurrentTime,1000);
+			
+			
 			$scope.getInfo = function(){
 				$http({
 					url : "/Globe",
@@ -19,6 +32,7 @@
 		</script>
 	</head>	
 	<body ng-controller="AjaxController">
+		<h1>{{time}}</h1>
 		Country<input type="text" ng-model="country"><br/>
 		<button type="button" ng-click="getInfo()">Get Info</button>
 		<h2>{{capital}}</h2>

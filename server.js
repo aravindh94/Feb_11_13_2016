@@ -6,12 +6,19 @@ var server = http.createServer(function(request,response){
 	if(url.match(/Globe/)){
 		getInfo(request,response);
 	}
+	else if(url.match(/currenttime/)){
+		getCurrentTime(request,response);
+	}
 	else{
 		var filePath = url.substring(1);
 		loadFile(filePath,response);	
 	}
 	
 });
+var getCurrentTime = function(request,response){
+	var dt = new Date();
+	response.end(dt.toTimeString());
+}
 var getInfo = function(request,response){
 	var queryString = require("url").parse(request.url,true).query;
 	var country = queryString.country;

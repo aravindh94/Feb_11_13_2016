@@ -3,9 +3,27 @@ var fs = require("fs");
 
 var server = http.createServer(function(request,response){
 	var url = request.url;
-	var filePath = url.substring(1);
-	loadFile(filePath,response);
+	if(url.match(/Globe/)){
+		getInfo(request,response);
+	}
+	else{
+		var filePath = url.substring(1);
+		loadFile(filePath,response);	
+	}
+	
 });
+var getInfo = function(request,response){
+	var queryString = require("url").parse(request.url,true).query;
+	var country = queryString.country;
+	var output = {"capital":"NA in DB"};
+	if(country == "India")
+		output = {"capital":"New Delhi"};
+	else if(country == "USA")
+		output = {"capital":"Washington DC"};
+	else if(country == "UK")
+		output = {"capital":"London"};
+	response.end(JSON.stringify(output));
+};
 var loadFile = function(filePath,response){
 	fs.readFile(filePath,function(e,data){
 		if(e)

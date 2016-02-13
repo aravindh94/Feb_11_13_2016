@@ -1,0 +1,26 @@
+<html ng-app="Day03">
+	<head>
+		<script src="angular.js"></script>
+		<script>
+		var day03 = angular.module("Day03",[]);
+		day03.controller("AjaxController",function($scope,$http){
+			$scope.getInfo = function(){
+				$http({
+					url : "/Globe",
+					params : {
+						country : $scope.country
+					},
+					method : "GET"
+				}).success(function(output){
+					$scope.capital = output.capital;
+				});
+			}
+		});
+		</script>
+	</head>	
+	<body ng-controller="AjaxController">
+		Country<input type="text" ng-model="country"><br/>
+		<button type="button" ng-click="getInfo()">Get Info</button>
+		<h2>{{capital}}</h2>
+	</body>	
+</html>
